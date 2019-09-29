@@ -10,9 +10,8 @@
 
 <p align="center">
   <a href="https://github.com/mad-robot/Spartan/wiki">Wiki</a> •
-  <a href="https://github.com/mad-robot/Spartan/Readme.md#usages">Usage</a> •
-  <a href="https://github.com/mad-robot/Spartan/Readme.md#gallery">Gallery</a> •
-  <a href="https://github.com/mad-robot/Spartan/Readme.md#credits">Credits</a>
+  <a href="https://github.com/Mad-robot/Spartan#usages">Usage</a> •
+  <a href="https://github.com/Mad-robot/Spartan#gallery">Gallery</a> 
 </p>
 
 ### Features
