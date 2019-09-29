@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/mad-robot/Spartan/wiki">Wiki</a> •
   <a href="https://github.com/mad-robot/Spartan/Readme.md#usages">Usage</a> •
-  <a href="https://github.com/mad-robot/Spartan/Readme.md#gallery">Gallery</a>
+  <a href="https://github.com/mad-robot/Spartan/Readme.md#gallery">Gallery</a> •
   <a href="https://github.com/mad-robot/Spartan/Readme.md#credits">Credits</a>
 </p>
 
@@ -58,4 +58,9 @@ spartan madrobot.ninja
 
 ### Gallery
 
-### Credits
+<img src="https://i.imgur.com/dCTxRLw.png" alt="Spartan" width="950" height="100%"></a>
+
+
+> Feel to fork and modify 
+
+
