@@ -1,0 +1,31 @@
+#!/bin/bash
+
+YELLOW="\033[1;33m"
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+RESET="\033[0m"
+
+echo -e "
+                      
+___________.__    .__         .___           _________                    __                  
+\__    ___/|  |__ |__| ______ |   | ______  /   _____/__________ ________/  |______    ____   
+  |    |   |  |  \|  |/  ___/ |   |/  ___/  \_____  \\____ \__  \\_  __ \   __\__  \  /    \  
+  |    |   |   Y  \  |\___ \  |   |\___ \   /        \  |_> > __ \|  | \/|  |  / __ \|   |  \ 
+  |____|   |___|  /__/____  > |___/____  > /_______  /   __(____  /__|   |__| (____  /___|  / 
+                \/        \/           \/          \/|__|       \/                 \/     \/   - by $RED@madrobot$RESET
+	"
+sleep 2;
+
+aquatone-discover -d $1
+aquatone-scan -d $1 --ports huge
+aquatone-takeover -d $1
+mkdir $HOME/Recon/$1
+python3 /$HOME/Sublist3r/sublist3r.py -d $1 -o $HOME/Recon/$1/$1.txt
+cat $HOME/Recon/$1/$1.txt | httprobe > $HOME/Recon/$1/$1_live.txt
+cat $HOME/Recon/$1/$1_live.txt $HOME/aquatone/$1/urls.txt | uniq > $HOME/Recon/$1/final_urls.txt
+cat $HOME/Recon/$1/final_urls.txt |sed 's/https\?:\/\///' > url.txt
+masscan -iL $HOME/Recon/$1/url.t -p 0-65535  -oX $HOME/Recon/$1/mass_output.xml --max-rate 100000
+cat $HOME/Recon/$1/mass_output.xml | aquatone -out $HOME/Recon/$1/
+$HOME/CMSeeK/sc > $HOME/Recon/$1/cms_scan.txt
+$HOME/waybackMachine/way > $HOME/Recon/$1/wayback.txt
+python3 $HOME/dirsearch/dirsearch.py -L $HOME/Recon/$1/final_urls.txt -e * --plain-text-report=$HOME/Recon/$1/dirsearch.txt
