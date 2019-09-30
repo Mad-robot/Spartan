@@ -52,7 +52,7 @@ sudo ./install.sh
 And start using it 
 
 ```
-spartan madrobot.ninja
+sudo spartan madrobot.ninja
 ```
 
 ### Gallery
