@@ -134,3 +134,7 @@ echo -e "for WORD in $(cat "/$HOME/Recon/$1/final_urls.txt");do python /$HOME/wa
 chmod +x /$HOME/waybackMachine/way
 echo -e "[$GREEN+$RESET] Done."
 
+echo -e "[$GREEN+$RESET] Moving Spartan ";
+cp /$HOME/Spartan/spartan /bin/spartan
+chmod +x /bin/spartan
+echo -e "[$GREEN+$RESET] Done."
