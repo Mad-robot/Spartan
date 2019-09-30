@@ -23,7 +23,7 @@ mkdir $HOME/Recon/$1
 python3 /$HOME/Sublist3r/sublist3r.py -d $1 -o $HOME/Recon/$1/$1.txt
 cat $HOME/Recon/$1/$1.txt | httprobe > $HOME/Recon/$1/$1_live.txt
 cat $HOME/Recon/$1/$1_live.txt $HOME/aquatone/$1/urls.txt | uniq > $HOME/Recon/$1/final_urls.txt
-cat $HOME/Recon/$1/final_urls.txt |sed 's/https\?:\/\///' > url.txt
+cat $HOME/Recon/$1/final_urls.txt |sed 's/https\?:\/\///' > $HOME/Recon/$1/url.txt
 masscan -iL $HOME/Recon/$1/url.txt -p 0-65535  -oX $HOME/Recon/$1/mass_output.xml --max-rate 100000
 cat $HOME/Recon/$1/mass_output.xml | aquatone -out $HOME/Recon/$1/
 $HOME/CMSeeK/sc > $HOME/Recon/$1/cms_scan.txt
