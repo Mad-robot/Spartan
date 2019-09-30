@@ -24,8 +24,11 @@ python3 /$HOME/Sublist3r/sublist3r.py -d $1 -o $HOME/Recon/$1/$1.txt
 cat $HOME/Recon/$1/$1.txt | httprobe > $HOME/Recon/$1/$1_live.txt
 cat $HOME/Recon/$1/$1_live.txt $HOME/aquatone/$1/urls.txt | uniq > $HOME/Recon/$1/final_urls.txt
 cat $HOME/Recon/$1/final_urls.txt |sed 's/https\?:\/\///' > $HOME/Recon/$1/url.txt
-masscan -iL $HOME/Recon/$1/url.txt -p 0-65535  -oX $HOME/Recon/$1/mass_output.xml --max-rate 100000
+nmap -iL $HOME/Recon/$1/url.txt -Pn -n -sn -oG $HOME/Recon/$1/resolved.txt
+cat $HOME/Recon/$1/resolved.txt | grep ^Host | cut -d " " -f 2 > $HOME/Recon/$1/host.txt
+masscan -iL $HOME/Recon/$1/host.txt -p 0-65535  -oX $HOME/Recon/$1/mass_output.xml --max-rate 100000
 cat $HOME/Recon/$1/mass_output.xml | aquatone -out $HOME/Recon/$1/
 $HOME/CMSeeK/sc > $HOME/Recon/$1/cms_scan.txt
 $HOME/waybackMachine/way > $HOME/Recon/$1/wayback.txt
 python3 $HOME/dirsearch/dirsearch.py -L $HOME/Recon/$1/final_urls.txt -e * --plain-text-report=$HOME/Recon/$1/dirsearch.txt
+echo -e "---+++++++++==============================+++++++++---"
