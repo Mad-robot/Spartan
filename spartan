@@ -27,7 +27,7 @@ cat $HOME/Recon/$1/final_urls.txt |sed 's/https\?:\/\///' > $HOME/Recon/$1/url.t
 nmap -iL $HOME/Recon/$1/url.txt -Pn -n -sn -oG $HOME/Recon/$1/resolved.txt
 cat $HOME/Recon/$1/resolved.txt | grep ^Host | cut -d " " -f 2 > $HOME/Recon/$1/host.txt
 sudo masscan -iL $HOME/Recon/$1/host.txt -p 0-65535  -oX $HOME/Recon/$1/mass_output.xml --max-rate 100000
-cat $HOME/Recon/$1/mass_output.xml | aquatone -out $HOME/Recon/$1/
+cat $HOME/Recon/$1/final_urls.txt | aquatone -out $HOME/Recon/$1/ -ports xlarge
 $HOME/CMSeeK/sc > $HOME/Recon/$1/cms_scan.txt
 $HOME/waybackMachine/way > $HOME/Recon/$1/wayback.txt
 python3 $HOME/dirsearch/dirsearch.py -L $HOME/Recon/$1/final_urls.txt -e * --plain-text-report=$HOME/Recon/$1/dirsearch.txt
