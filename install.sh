@@ -104,10 +104,11 @@ git clone https://github.com/aboul3la/Sublist3r;
 pip3 install -r $HOME/Sublist3r/requirements.txt;
 echo -e "[$GREEN+$RESET] Done."
 
-echo -e "[$GREEN+$RESET] Installing httprobe ";
+echo -e "[$GREEN+$RESET] Installing httprobe & waybackurls";
 cd $HOME || return;
 sleep 1;
 go get -u github.com/tomnomnom/httprobe;
+go get github.com/tomnomnom/waybackurls;
 echo -e "[$GREEN+$RESET] Done."
 
 echo -e "[$GREEN+$RESET] Installing dirsearch ";
@@ -125,14 +126,6 @@ echo -e "for line in $(cat "/$HOME/Recon/$1/final_urls.txt");do python3 $HOME/CM
 chmod +x ./CMSeeK/sc
 echo -e "[$GREEN+$RESET] Done."
 
-
-echo -e "[$GREEN+$RESET] Installing waybackMachine ";
-cd $HOME || return;
-sleep 1;
-git clone https://github.com/ghostlulzhacks/waybackMachine;
-echo -e "for WORD in $(cat "/$HOME/Recon/$1/final_urls.txt");do python /$HOME/waybackMachine/waybackMachine.py "$WORD" > /$HOME/Recon/$1/way/"$WORD".txt ; done" > ./waybackMachine/way;
-chmod +x /$HOME/waybackMachine/way
-echo -e "[$GREEN+$RESET] Done."
 
 echo -e "[$GREEN+$RESET] Moving Spartan ";
 cp /$HOME/Spartan/spartan /bin/spartan
