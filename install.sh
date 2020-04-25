@@ -65,13 +65,6 @@ go get github.com/michenriksen/aquatone;
 echo -e "[$RED+$RESET] Aquatone needs API keys to work";
 sleep 2;
 echo -e "----========++++========----";
-echo -e "Go to riddler.io and sign up ";
-read -p "Enter riddler_username: " riddler_username;
-read -p "Enter riddler_password: " riddler_password;
-
-aquatone-discover --set-key riddler_username $riddler_username ;
-aquatone-discover --set-key riddler_password $riddler_password ;
-echo -e "----========++++========----";
 echo -e "Go to shodan.io and sign up " ;
 sleep 2;
 read -p "Enter shodan: " shodan ;
@@ -104,11 +97,11 @@ git clone https://github.com/aboul3la/Sublist3r;
 pip3 install -r $HOME/Sublist3r/requirements.txt;
 echo -e "[$GREEN+$RESET] Done."
 
-echo -e "[$GREEN+$RESET] Installing httprobe & waybackurls";
+echo -e "[$GREEN+$RESET] Installing httprobe & getallurls";
 cd $HOME || return;
 sleep 1;
 go get -u github.com/tomnomnom/httprobe;
-go get github.com/tomnomnom/waybackurls;
+go get -u github.com/lc/gau;
 echo -e "[$GREEN+$RESET] Done."
 
 echo -e "[$GREEN+$RESET] Installing dirsearch ";
