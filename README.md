@@ -60,6 +60,6 @@ sudo spartan madrobot.ninja
 <img src="https://i.imgur.com/dCTxRLw.png" alt="Spartan" width="950" height="100%"></a>
 
 
-> Feel to fork and modify 
+> Feel free to fork and modify 
 
 
